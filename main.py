@@ -1,8 +1,10 @@
 import json
+import hashlib
+from typing import Dict
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import uvicorn
-from model import UserPreference, RecommendationResult
+from model import UserPreference, RecommendationResult, UserCreate, UserLogin, ReadUpdate
 
 app = FastAPI()
 
@@ -10,6 +12,47 @@ def load_webnovel_data():
     with open("web_novels.json", "r", encoding="utf-8") as f:
         data = json.load(f)
     return data
+
+
+@app.get("/novels")
+async def get_novels():
+    """Return full list of novels (used by frontend to fetch data)."""
+    return load_webnovel_data()
+
+
+@app.get("/options")
+async def get_options():
+    """Return precomputed list of genres and keywords for UI"""
+    data = load_webnovel_data()
+    genres = set()
+    keywords = set()
+    for n in data:
+        for g in n.get("genre", []):
+            genres.add(g)
+        for k in n.get("keywords", []):
+            keywords.add(k)
+    return {"genres": sorted(list(genres)), "keywords": sorted(list(keywords))}
+
+
+# Simple JSON-based user storage
+USERS_FILE = "user.json"
+
+
+def load_users() -> Dict[str, Dict]:
+    try:
+        with open(USERS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+
+def save_users(users: Dict[str, Dict]):
+    with open(USERS_FILE, "w", encoding="utf-8") as f:
+        json.dump(users, f, ensure_ascii=False, indent=2)
+
+
+def hash_password(password: str) -> str:
+    return hashlib.sha256(password.encode("utf-8")).hexdigest()
 
 @app.get("/")
 def read_root():
@@ -19,11 +62,15 @@ def read_root():
 async def get_recommendations(user_preference: UserPreference):
     webnovel_data = load_webnovel_data()
     results = []
-    
+
     pref_genres = [g.strip().lower() for g in (user_preference.genres or [])]
     pref_keywords = [k.strip().lower() for k in (user_preference.keywords or [])]
+    exclude_ids = set(user_preference.exclude_ids or [])
 
     for novel in webnovel_data:
+        if novel.get("id") in exclude_ids:
+            continue
+
         novel_genres = [g.strip().lower() for g in (novel.get("genre") or [])]
         novel_keywords = [k.strip().lower() for k in (novel.get("keywords") or [])]
 
@@ -45,6 +92,55 @@ async def get_recommendations(user_preference: UserPreference):
 
     results.sort(key=lambda x: (-x["score"], x.get("title", "")))
     return {"recommendations": results}
+
+
+# --- User endpoints ---
+
+
+@app.post("/signup")
+async def signup(u: UserCreate):
+    users = load_users()
+    if u.username in users:
+        raise HTTPException(status_code=400, detail="username already exists")
+    users[u.username] = {"password": hash_password(u.password), "reads": []}
+    save_users(users)
+    return {"ok": True}
+
+
+@app.post("/login")
+async def login(u: UserLogin):
+    users = load_users()
+    user = users.get(u.username)
+    if not user:
+        raise HTTPException(status_code=401, detail="invalid credentials")
+
+    # Support both hashed and plaintext-stored passwords for compatibility with existing user.json
+    stored = user.get("password")
+    if stored != hash_password(u.password) and stored != u.password:
+        raise HTTPException(status_code=401, detail="invalid credentials")
+    return {"username": u.username, "reads": user.get("reads", [])}
+
+
+@app.get("/user/{username}/reads")
+async def get_reads(username: str):
+    users = load_users()
+    user = users.get(username)
+    if not user:
+        raise HTTPException(status_code=404, detail="user not found")
+    return {"reads": user.get("reads", [])}
+
+
+@app.post("/user/{username}/reads")
+async def add_read(username: str, payload: ReadUpdate):
+    users = load_users()
+    user = users.get(username)
+    if not user:
+        raise HTTPException(status_code=404, detail="user not found")
+    rid = payload.novel_id
+    if rid not in user.get("reads", []):
+        user.setdefault("reads", []).append(rid)
+        save_users(users)
+    return {"reads": user.get("reads", [])}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

@@ -1,0 +1,76 @@
+{
+  "test": {
+    "password": "testpass",
+    "reads": [
+      1,
+      3,
+      2
+    ]
+  },
+  "alice": {
+    "password": "alicepwd",
+    "reads": []
+  },
+  "admin": {
+    "password": "1234",
+    "reads": []
+  },
+  "user1": {
+    "password": "abcd",
+    "reads": []
+  },
+  "user2": {
+    "password": "efgh",
+    "reads": []
+  },
+  "limjaeyoung": {
+    "password": "1234",
+    "reads": []
+  },
+  "user3": {
+    "password": "pass3",
+    "reads": []
+  },
+  "user4": {
+    "password": "pass4",
+    "reads": []
+  },
+  "user5": {
+    "password": "pass5",
+    "reads": []
+  },
+  "user6": {
+    "password": "pass6",
+    "reads": []
+  },
+  "user7": {
+    "password": "pass7",
+    "reads": []
+  },
+  "user8": {
+    "password": "pass8",
+    "reads": []
+  },
+  "user9": {
+    "password": "pass9",
+    "reads": []
+  },
+  "user10": {
+    "password": "pass10",
+    "reads": []
+  },
+  "user11": {
+    "password": "pass11",
+    "reads": []
+  },
+  "user12": {
+    "password": "pass12",
+    "reads": []
+  },
+  "smoketest": {
+    "password": "30c952fab122c3f9759f02a6d95c3758b246b4fee239957b2d4fee46e26170c4",
+    "reads": [
+      5
+    ]
+  }
+}
