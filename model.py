@@ -2,8 +2,8 @@ from pydantic import BaseModel
 
 
 class UserPreference(BaseModel):
-    id: int
-    item: str
+    genres: list[str]
+    keywords: list[str]
 
 
 class RecommendationResult(BaseModel):

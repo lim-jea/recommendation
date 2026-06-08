@@ -1,0 +1,246 @@
+
+[
+    {
+        "id": 1,
+        "title": "전지적 독자 시점",
+        "genre": ["판타지"],
+        "keywords": ["메타", "시스템", "현대판타지"],
+        "author": "싱숑",
+        "description": "원래 소설 속 독자로서 이야기의 흐름을 알고 있는 주인공이 게임화된 세계에서 살아남기 위해 행동하는 메타 판타지 소설.",
+        "link": "https://ko.wikipedia.org/wiki/%EC%A0%84%EC%A7%80%EC%A0%81_%EB%8F%85%EC%9E%90%EC%8B%9C%EC%A0%90"
+    },
+    {
+        "id": 2,
+        "title": "나 혼자만 레벨업",
+        "genre": ["판타지", "액션"],
+        "keywords": ["헌터", "성장", "던전", "시스템"],
+        "author": "추공",
+        "description": "약한 헌터가 점점 강해져 단독으로 레벨업해가는 과정을 그린 액션 판타지 소설.",
+        "link": "https://en.wikipedia.org/wiki/Solo_Leveling"
+    },
+    {
+        "id": 3,
+        "title": "달빛조각사",
+        "genre": ["판타지", "게임"],
+        "keywords": ["MMORPG", "경제", "성장", "모험"],
+        "author": "남희성",
+        "description": "가상 게임 속에서 조각사 직업을 통해 성장하고 성공을 꿈꾸는 주인공의 이야기.",
+        "link": "https://ko.wikipedia.org/wiki/%EB%8B%AC%EB%B9%9B%EC%A1%B0%EA%B0%81%EC%82%AC"
+    },
+    {
+        "id": 4,
+        "title": "오버로드",
+        "genre": ["판타지", "다크판타지"],
+        "keywords": ["이세계", "게임세계", "군주", "암흑"],
+        "author": "마루야마 쿠가네",
+        "description": "VRMMO가 종료되지 않고 게임 세계에 남겨진 플레이어가 최강의 존재로 군림하는 어두운 판타지.",
+        "link": "https://en.wikipedia.org/wiki/Overlord_(novel_series)"
+    },
+    {
+        "id": 5,
+        "title": "전생했더니 슬라임이었던 건에 대하여",
+        "genre": ["판타지", "이세계"],
+        "keywords": ["전생", "슬라임", "경영", "왕국건설"],
+        "author": "후세",
+        "description": "현대인이 이세계에서 슬라임으로 환생해 점차 강력한 존재로 성장해 제국을 건설하는 이야기.",
+        "link": "https://en.wikipedia.org/wiki/That_Time_I_Got_Reincarnated_as_a_Slime"
+    },
+    {
+        "id": 6,
+        "title": "Worm",
+        "genre": ["슈퍼히어로", "다크"],
+        "keywords": ["초능력", "그레이모럴", "서바이벌"],
+        "author": "Wildbow",
+        "description": "초능력을 얻은 소녀가 생존과 정의 사이에서 복잡한 선택을 하는 어두운 슈퍼히어로 서사.",
+        "link": "https://parahumans.wordpress.com/"
+    },
+    {
+        "id": 7,
+        "title": "The Wandering Inn",
+        "genre": ["판타지", "이세계"],
+        "keywords": ["여관", "캐릭터중심", "연재"],
+        "author": "pirateaba",
+        "description": "이세계에서 여관을 운영하며 여러 인물들의 삶과 사건을 엮어내는 장편 연재 소설.",
+        "link": "https://wanderinginn.com/"
+    },
+    {
+        "id": 8,
+        "title": "Mother of Learning",
+        "genre": ["판타지", "타임루프"],
+        "keywords": ["시간루프", "마법학", "성장"],
+        "author": "Domagoj Kurmaic (nobody103)",
+        "description": "주인공이 반복되는 한 달을 통해 자신과 주변을 바꾸어 가는 마법 성장물.",
+        "link": "https://www.fictionpress.com/s/2841816/1/Mother-of-Learning"
+    },
+    {
+        "id": 9,
+        "title": "Log Horizon",
+        "genre": ["판타지", "게임", "이세계"],
+        "keywords": ["사회구축", "전략", "파티"],
+        "author": "토네 코우",
+        "description": "MMORPG 세계에 갇힌 유저들이 사회를 재건해나가는 전략적 이세계물.",
+        "link": "https://en.wikipedia.org/wiki/Log_Horizon"
+    },
+    {
+        "id": 10,
+        "title": "The Legendary Moonlight Sculptor",
+        "genre": ["판타지", "게임"],
+        "keywords": ["스컬프터", "경제", "성장", "모험"],
+        "author": "남희성",
+        "description": "가상 현실 게임 속에서 조각사로 성공을 꿈꾸며 여러 모험을 펼치는 성장담.",
+        "link": "https://en.wikipedia.org/wiki/Legendary_Moonlight_Sculptor"
+    },
+    {
+        "id": 11,
+        "title": "달의 요람 (예시)",
+        "genre": ["로맨스", "판타지"],
+        "keywords": ["로맨스", "귀족", "성장"],
+        "author": "김작가",
+        "description": "귀족 가문에서 태어난 주인공이 운명에 맞서 성장하고 사랑을 찾아가는 로맨스 판타지(예시형).",
+        "link": "https://example.com/moon-cradle"
+    },
+    {
+        "id": 12,
+        "title": "Release That Witch",
+        "genre": ["판타지", "이세계"],
+        "keywords": ["마법과학", "성장국가", "전략", "해방"],
+        "author": "Er Mu",
+        "description": "현대인의 지식으로 낙후된 왕국을 발전시키며 마녀들을 해방시키는 전략적 이세계물.",
+        "link": "https://www.novelupdates.com/series/release-that-witch/"
+    },
+    {
+        "id": 13,
+        "title": "The King’s Avatar",
+        "genre": ["게임", "스포츠"],
+        "keywords": ["e스포츠", "프로게이머", "팀플레이"],
+        "author": "蝴蝶蓝 (Butterfly Blue)",
+        "description": "프로게이머의 재기와 팀 운영을 중심으로 한 게임 소설로, 실제 e스포츠 감각이 살아있음.",
+        "link": "https://en.wikipedia.org/wiki/The_King%27s_Avatar"
+    },
+    {
+        "id": 14,
+        "title": "Mage Errant",
+        "genre": ["판타지", "학원"],
+        "keywords": ["마법학원", "코믹", "학교"],
+        "author": "John Lewis",
+        "description": "초보 마법사가 학원에서 좌충우돌하며 성장하는 유쾌한 판타지 연재물.",
+        "link": "https://www.mage-errant.com/"
+    },
+    {
+        "id": 15,
+        "title": "Re:Zero - Starting Life in Another World",
+        "genre": ["판타지", "이세계", "드라마"],
+        "keywords": ["타임루프", "죽음리셋", "트라우마"],
+        "author": "Tappei Nagatsuki",
+        "description": "이세계에서 죽음을 반복하며 고통과 선택을 통해 성장하는 다크 이세계 서사.",
+        "link": "https://en.wikipedia.org/wiki/Re:Zero"
+    },
+    {
+        "id": 16,
+        "title": "The Beginning After The End",
+        "genre": ["판타지", "재탄생"],
+        "keywords": ["재탄생", "왕족", "모험"],
+        "author": "TurtleMe",
+        "description": "전생한 왕이 새로운 세계에서 자신의 실수들을 바로잡아나가는 성장기.",
+        "link": "https://tapas.io/series/the-beginning-after-the-end"
+    },
+    {
+        "id": 17,
+        "title": "Omniscient Reader's Viewpoint",
+        "genre": ["판타지", "메타"],
+        "keywords": ["메타", "서바이벌", "웹소설세계"],
+        "author": "Sing Shong",
+        "description": "독자 관점에서 소설의 세계가 현실화되며 발생하는 서바이벌과 전략을 다룸.",
+        "link": "https://www.novelupdates.com/series/omniscient-readers-viewpoint/"
+    },
+    {
+        "id": 18,
+        "title": "Solo Leveling",
+        "genre": ["판타지", "액션"],
+        "keywords": ["헌터", "성장", "전투", "시스템"],
+        "author": "Chu Gong",
+        "description": "약한 존재가 점차 최강의 헌터로 거듭나는 액션 중심 성장물.",
+        "link": "https://www.novelupdates.com/series/solo-leveling/"
+    },
+    {
+        "id": 19,
+        "title": "The Gamer",
+        "genre": ["현대판타지", "액션"],
+        "keywords": ["게임시스템", "성장", "능력치"],
+        "author": "Sung San-Young",
+        "description": "현실에 게임 시스템이 도입되어 능력치를 키우는 청년의 이야기(웹툰/웹소설 연계).",
+        "link": "https://en.wikipedia.org/wiki/The_Gamer"
+    },
+    {
+        "id": 20,
+        "title": "Arcane Sniper (예시)",
+        "genre": ["판타지", "액션"],
+        "keywords": ["암살자", "원거리", "마법저격"],
+        "author": "이작가",
+        "description": "마법과 저격 기술이 결합된 이세계에서 한 사수가 명성을 쌓아가는 이야기(예시).",
+        "link": "https://example.com/arcane-sniper"
+    },
+    {
+        "id": 21,
+        "title": "Wormwood Season (예시)",
+        "genre": ["아포칼립스", "판타지"],
+        "keywords": ["생존", "괴물", "시리즈"],
+        "author": "여러작가",
+        "description": "종말 이후의 혼란한 세계에서 살아남기 위한 인간들의 투쟁을 그린 연작(예시 섞음).",
+        "link": "https://example.com/wormwood"
+    },
+    {
+        "id": 22,
+        "title": "A Practical Guide to Evil",
+        "genre": ["판타지", "다크판타지", "정치"],
+        "keywords": ["전략", "정치", "악역역전"],
+        "author": "ErraticErrata",
+        "description": "영웅과 악당의 틀을 이용해 권력을 얻고자 하는 젊은 여성의 정치·전략 서사.",
+        "link": "https://practicalguide.to/"
+    },
+    {
+        "id": 23,
+        "title": "Sovereign of the Three Realms (예시)",
+        "genre": ["무협"],
+        "keywords": ["수련", "무협", "영웅담"],
+        "author": "미상",
+        "description": "세 세계를 아우르는 강자가 되기 위해 수련하고 전장을 누비는 무협 판타지(예시).",
+        "link": "https://example.com/sovereign"
+    },
+    {
+        "id": 24,
+        "title": "He Who Fights With Monsters",
+        "genre": ["판타지", "이세계", "유머"],
+        "keywords": ["몬스터", "성장", "유머"],
+        "author": "저스틴 크로스",
+        "description": "현대인이 이세계로 넘어가 몬스터와 싸우며 재능과 명성을 쌓아가는 이야기.",
+        "link": "https://www.novelupdates.com/series/he-who-fights-with-monsters/"
+    },
+    {
+        "id": 25,
+        "title": "The Last Human",
+        "genre": ["SF", "포스트아포칼립스"],
+        "keywords": ["인류멸종", "생존", "SF"],
+        "author": "Heratik",
+        "description": "인류 멸종 이후 생존자(혹은 유일한 인간)로서의 고독과 투쟁을 다루는 장편 소설.",
+        "link": "https://www.novelupdates.com/series/the-last-human/"
+    },
+    {
+        "id": 26,
+        "title": "A Thousand Li (예시)",
+        "genre": ["무협", "판타지"],
+        "keywords": ["수련", "성장", "무협"],
+        "author": "나관",
+        "description": "수련을 통해 점점 더 강해지는 주인공이 세계를 건너 유물을 찾는 무협 판타지(예시).",
+        "link": "https://example.com/a-thousand-li"
+    },
+    {
+        "id": 27,
+        "title": "Mushoku Tensei: Jobless Reincarnation",
+        "genre": ["판타지", "재생"],
+        "keywords": ["전생", "성장", "마법"],
+        "author": "Rifujin na Magonote",
+        "description": "전생한 사람이 새로운 삶에서 과거의 실수를 바로잡으려 성장하는 서사.",
+        "link": "https://en.wikipedia.org/wiki/Mushoku_Tensei"
+    }
+]
