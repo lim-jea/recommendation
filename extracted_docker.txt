@@ -1,0 +1,375 @@
+--- PAGE 1 ---
+Open Source Software
+Dr. Kyudong Park
+School of Information ConvergenceI040 -2-8461
+10. Docker
+1
+
+
+--- PAGE 3 ---
+1. Introduction
+•Docker
+−2013 년발표 (The future of Linux Containers)
+−GPL v2 라이선스 (오픈소스)
+• https://www.docker.com/community/open -source/
+−2022년 4월기준 기업 가치 21억달러 (약3조원)
+−Build once and run anywhere
+• 독립적인 환경에서 일관된 실행 결과를 보장
+3
+
+
+--- PAGE 4 ---
+1. Introduction
+•Docker
+−컨테이너 기반의 오픈소스 가상화 플랫폼
+• 컨테이너 : 라이브러리, 시스템 도구, 코드 등애플리케이션 실행에 필요한 모든 것이 포함된 표준화 유닛
+−개발 환경에 독립적으로 애플리케이션을 실행할 수있도록 컨테이너를 만들고 관리하는 것을 도와주는 도구
+4
+
+
+--- PAGE 5 ---
+1. Introduction
+•Docker 를쓰는 이유
+5
+
+
+--- PAGE 6 ---
+1. Introduction
+•Docker 를쓰는 이유
+6
+
+
+--- PAGE 7 ---
+1. Introduction
+•Docker 의구성 요소
+−Container + Image + Registry
+7
+
+
+--- PAGE 11 ---
+2. Container & Image
+•Image ( 도커 이미지 )
+−컨테이너 실행에 필요한 파일과 설정을 포함하고 있는 파일
+−같은 이미지에서 여러 개의 컨테이너를 만들 수있음
+−컨테이너의 상태가 바뀌거나 삭제되어도 이미지는 변하지 않고 그대로 남아있음
+• 추가되거나 변하는 값은 컨테이너에 저장된다.
+−도커 이미지는 Docker hub 에서 다운로드/ 업로드하거나 Docker Registry 저장소를 직접 만들어 관리할 수
+있음
+• https://hub.docker.com/search
+11
+
+--- PAGE 12 ---
+2. Container & Image
+•container 와image 의관계
+−이미지를 만들기 위한 명세서 = dockerfile
+−이미지가 실행된 상태 = container
+12
+
+
+--- PAGE 13 ---
+Contents
+•Introduction
+•Container & Image
+•실습
+−Docker 설치
+−Container 관련 명령어
+−Image 관련 명령어
+−Docker 이미지 만들기
+−AWS 배포 진행하기
+13
+
+--- PAGE 14 ---
+1. Docker 설치
+•가장 확실한 것= official manual
+•Ubuntu
+•Docker Desktop for Mac (macOS)
+•Docker Desktop for Windows
+14
+
+--- PAGE 15 ---
+1. Docker 설치
+•Installation in Windows
+−WSL2 (Windows subsystem for Linux 2) 활용
+• 터미널에서 wsl 명령어 입력하여 wsl 작동 여부 확인
+• 설치 안되어 있다면, https://gaesae.com/161 의21번단계까지 진행
+−docker desktop for windows 다운로드 및설치
+• 설치 후일반 터미널에서 docker 명령어 활용 가능
+15
+
+
+--- PAGE 16 ---
+1. Docker 설치
+•Installation in Linux (ubuntu)
+−$ sudo apt -get update
+−$ sudo apt -get install ca -certificates curl
+−$ sudo install -m 0755 - d /etc/apt/keyrings
+−$ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg - o /etc/apt/keyrings/docker.asc
+−$ sudo chmod a+r /etc/apt/keyrings/docker.asc
+−$ echo \
+"deb [arch=$(dpkg -- print-architecture) signed -by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+$(. /etc/os -release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+−$ sudo apt -get update
+−$ sudo apt -get install docker- ce docker- ce-cli containerd.io docker -buildx-plugin docker -compose- plugin
+16
+
+--- PAGE 17 ---
+1. Docker 설치
+•Docker 설치 확인
+−$ sudo docker version
+•Docker 는client, server 로구성
+−docker 명령어를 입력하면
+client 에서 server 로명령을 전송
+−결과를 받아서 출력함
+17
+
+
+--- PAGE 18 ---
+Contents
+•Introduction
+•Container & Image
+•실습
+−Docker 설치
+−Container 관련 명령어
+−Image 관련 명령어
+−Docker 이미지 만들기
+−AWS 배포 진행하기
+18
+
+--- PAGE 19 ---
+2. Container 관련 명령어
+•Container 의상태 전이
+19Imageremote repository
+(dockerhub)
+ImageContainer
+(run)Container
+(stop)local repository
+Project
+filesdocker rundocker build
+docker commitdocker stop
+docker start
+docker rm docker rmidocker pull
+docker pushdocker run
+
+--- PAGE 20 ---
+2. Container 관련 명령어
+•Container 실행하기
+−$ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+−OPTIONS
+• -d : detached mode (background mode)
+• -p : 호스트와 컨테이너의 포트를 연결 (forwarding)
+• -v : 호스트와 컨테이너의 디렉토리를 연결 (mount)
+• -e : 컨테이너 내에서 사용할 환경변수 설정
+• --name : 컨테이너의 이름 설정
+• --rm : 프로세스 종료 시컨테이너 자동 제거
+• -it : 터미널 입력
+• --link : 다른 컨테이너와 연결
+• --restart =always :재시작 시항상 컨테이너 구동 (--rm 과동시에 수행할 수없음)
+20
+
+--- PAGE 21 ---
+2. Container 관련 명령어
+•Container 실행하기 (python)
+−$ sudo docker pull python
+−$ sudo docker run python
+• 별다른 명령어를 주지 않았기 때문에 바로 종료됨
+−명령어를 주기 위해서는…
+21
+
+
+--- PAGE 22 ---
+2. Container 관련 명령어
+•Container 실행하기 (ubuntu)
+−$ sudo docker run --rm -it python
+• 컨테이너에 python 이담기고,  명령창이 실행된 상태
+• exit() 로종료하면, 컨테이너도 함께 종료
+•$ sudo docker ps  로현재 실행 중인 컨테이너 목록을 확인 가능
+22
+
+
+--- PAGE 23 ---
+2. Container 관련 명령어
+•Container 관리 : 컨테이너의 ID는앞의 고유 몇글자만 입력하여도 됨
+−컨테이너 목록 확인하기 (ps)
+•$ sudo docker ps - a
+−컨테이너 중지하기 (stop)
+•$ sudo docker stop [OPTIONS] CONTAINER [CONTAINER...]
+−컨테이너 재시작하기 (re-start)
+•$ sudo docker start [OPTIONS] CONTAINER [CONTAINER...]
+−컨테이너 제거하기 (rm)
+• 반드시 중지된 컨테이너만 제거할 수있음
+•$ sudo docker rm [OPTIONS] CONTAINER [CONTAINER...]
+• 중지된 컨테이너 한번에 삭제하기
+−$ docker rm -v $(docker ps -a -q -f status=exited) 
+23
+
+--- PAGE 24 ---
+2. Container 관련 명령어
+•Container 관리
+−컨테이너 로그 보기 (logs)
+•$ sudo docker logs [OPTIONS] CONTAINER
+−--tail 10 : 마지막10줄
+−-f : 실시간 로그 생성 모니터링
+−컨테이너 명령어 실행하기 (exec)
+•$ sudo docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+− 컨테이너로 명령어를 보내어 실행하게 함
+24
+
+--- PAGE 26 ---
+2. Container 관련 명령어
+•Container 내부의 변경 사항을 이미지로 만들기
+−$ sudo docker commit [OPTIONS] CONTAINER IMAGE(REPOSITORY)
+−동작 중인 현재 Container 의상태로 이미지를 만들 수있음
+• 비교) docker build 는dockerfile 으로부터 생성하는 것
+• 컨테이너 변경 사항을 이미지로 저장하는 간단한 방법이긴 하지만, 더욱 체계적인 이미지 관리 및배포를 위해서는
+Dockerfile 을작성하고, docker build 명령어를 사용하여 변경 사항을 포함한 새이미지를 빌드하는 것이 권장됨
+−docker compose 를활용하면, 여러 옵션들을 파일 형태로 저장할 수있음
+26
+
+--- PAGE 27 ---
+Contents
+•Introduction
+•Container & Image
+•실습
+−Docker 설치
+−Container 관련 명령어
+−Image 관련 명령어
+−Docker 이미지 만들기
+−AWS 배포 진행하기
+27
+
+--- PAGE 28 ---
+3. Image 관련 명령어
+•Image 관리
+−이미지 목록 확인하기 (images)
+•$ sudo docker images [OPTIONS] [REPOSITORY[:TAG]]
+−이미지 다운로드 하기 (pull)
+•$ sudo docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+−이미지 삭제하기 (rmi)
+•$ sudo docker rmi [OPTIONS] IMAGE [IMAGE...]
+−컨테이너에서 실행 중인 이미지는 삭제 불가능
+28
+
+--- PAGE 29 ---
+Contents
+•Introduction
+•Container & Image
+•실습
+−Docker 설치
+−Container 관련 명령어
+−Image 관련 명령어
+−Docker 이미지 만들기
+−AWS 배포 진행하기
+29
+
+--- PAGE 30 ---
+4. Docker 이미지 만들기
+•Docker 이미지 만들기
+−dockerfile : docker 상에서 작동시킬 컨테이너의 구성 정보를 기술하기 위한 파일
+−dockerfile 을build 하면 image 가생성됨
+•Dockerfile 의기본 명령어
+−FROM <image>:<tag>  # 베이스 이미지 지정
+−COPY <src> <destination> # 호스트의 src 경로에서guest의 destination 경로로 복사
+−ADD <src> <destination>  # COPY와 유사, src 에 URL 입력 가능, 압축파일 넣으면 자동 해제 후복사
+−RUN <command>  # 명령어를 실행
+−CMD <command> # 컨테이너 실행 시내부에서 실행될 명령어
+−WORKDIR <path> #dockerfile 의명령어가 실행될 기본 디렉토리(RUN 실행 후위치는 초기화되므로)
+−EXPOSE <port> #요청을 기다리는 포트 지정(listen)
+−VOLUME <path> # 컨테이너 외부에 파일시스템을 마운트
+−ENV <key>=<value> # 컨테이너에서 사용할 환경변수 지정
+30
+
+--- PAGE 31 ---
+4. Docker 이미지 만들기
+•이미지로 만들 작업
+−fastapi 코드를 ubuntu 에서 실행시키는 작업
+−python 환경에서
+−작업 폴더를 설정하고
+−작업 파일을 옮기고
+−종속성 패키지를 설치하고
+−내부 포트를 열고
+−명령어 실행
+31Dockerfile
+
+--- PAGE 32 ---
+4. Docker 이미지 만들기
+•.dockerignore 의활용
+−작업 내용을 COPY 할때, 무시해야할 파일 리스트
+−python 의예시
+•docker build
+−tag name
+−작업 폴더 명시
+32
+
+
+--- PAGE 33 ---
+4. Docker 이미지 만들기
+•Image 생성 확인
+•만들어진 image 를container 에올려보기
+−외부에서 8000 포트로 접속 =>Container 내부 80포트와 연결
+−localhost:8000 접속 테스트
+33
+
+
+--- PAGE 34 ---
+4. Docker 이미지 만들기
+•동일한 이미지를 활용한 여러 container 생성
+−port 번호를 다르게 주기
+34
+
+
+--- PAGE 35 ---
+Contents
+•Introduction
+•Container & Image
+•실습
+−Docker 설치
+−Container 관련 명령어
+−Image 관련 명령어
+−Docker 이미지 만들기
+−AWS 배포 진행하기
+35
+
+--- PAGE 36 ---
+5. AWS 배포 진행하기
+•Image 를dockerhub 에업로드
+−dockerhub 회원 가입 필수
+−repository 생성
+−생성한 image 이름을 repository 이름과 맞춰줌
+−dockerhub 에push
+36
+
+
+--- PAGE 37 ---
+5. AWS 배포 진행하기
+•AWS 에서 Image pull
+•docker run
+•EC2 접속 테스트 (포트 번호 8000 열려있는지 사전 체크 필요)
+37
+
+
+--- PAGE 38 ---
+5. AWS 배포 진행하기
+•docker 활용 시장점
+−python 패키지 종속성이 docker image 에모두 포함됨
+• python 을컴퓨터에 설치하지 않아도 구동이 됨
+−여러 서버에서 애플리케이션 ( = process) 를구동하기가 쉬워짐 (가상화의 장점)
+•한계점
+−Image 를주고 받기 위한 배포 플랫폼의 한계 (dockerhub 는private repo 1 개만 허용)
+• 무료 private repo 를제공해 주는 다른 서비스 존재함
+−Image 의크기
+• 기존 fastapi 프로젝트의 용량 : 20-30MB
+• 배포되는 Image 의크기 : 약900MB ( 단독 구동에 필요한 python 자체를 포함)
+38
+
+--- PAGE 39 ---
+Advanced Topic
+•여러 docker container 를띄우고 , 이를 쉽게 관리하려면 어떻게 해야할까
+−e.g.) back -end (fastapi), DB(mysql), Front -end (react, nginx) 을같이 운영하고자 할때
+−docker -compose 사용해보기
+• 한번에 여러 container 를동시에 실행하고 종료할 수있음
+• docker run 의인자들을 yaml 형식으로 미리 입력
+•anaconda 를docker 로관리해보기
+−여러 python 패키지 종속성 관리가 쉬워짐
+39
+
+
